@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1064d142-90e2-4b0c-af16-7c1e501c68ca" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="2" />
+  </component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="290fecbe-1486-469e-84b4-4e9872edb845" />
+  </component>
+  <component name="ProjectId" id="1k5dljrd0hnDRyWq19vR0qjlE4b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/Controller" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/.dev" />
+      <recent name="$PROJECT_DIR$/bin" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1064d142-90e2-4b0c-af16-7c1e501c68ca" name="Default Changelist" comment="" />
+      <created>1604994538594</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604994538594</updated>
+      <workItem from="1604994540734" duration="21969000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="71" y="-1047" key="#Mess_Detector" timestamp="1605256119136">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="71" y="-1047" key="#Mess_Detector/0.23.1680.1027/-797.-1417.2560.1417/-2717.-1229.1920.1177@-797.-1417.2560.1417" timestamp="1605256119136" />
+    <state x="275" y="-993" key="#com.intellij.ide.util.MemberChooser" timestamp="1605508980662">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="275" y="-993" key="#com.intellij.ide.util.MemberChooser/0.23.1680.1027/-2717.-1229.1920.1177/-797.-1417.2560.1417@-797.-1417.2560.1417" timestamp="1605508980662" />
+    <state x="275" y="-993" key="#com.intellij.ide.util.MemberChooser/0.23.1680.1027/-797.-1417.2560.1417/-2717.-1229.1920.1177@-797.-1417.2560.1417" timestamp="1605257078684" />
+    <state x="221" y="-947" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605255737722">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="221" y="-947" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1680.1027/-797.-1417.2560.1417/-2717.-1229.1920.1177@-797.-1417.2560.1417" timestamp="1605255737722" />
+    <state x="209" y="-976" key="NewPhpClassDialog" timestamp="1605002274316">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="209" y="-976" key="NewPhpClassDialog/0.23.1680.1027/-2717.-1229.1920.1177/-797.-1417.2560.1417@-797.-1417.2560.1417" timestamp="1605002274316" />
+    <state x="-39" y="-1157" width="1317" height="878" key="SettingsEditor" timestamp="1605510441776">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="-39" y="-1157" key="SettingsEditor/0.23.1680.1027/-2717.-1229.1920.1177/-797.-1417.2560.1417@-797.-1417.2560.1417" timestamp="1605510441776" />
+    <state x="-39" y="-1157" width="1317" height="878" key="SettingsEditor/0.23.1680.1027/-797.-1417.2560.1417/-2717.-1229.1920.1177@-797.-1417.2560.1417" timestamp="1605256296750" />
+    <state x="213" y="-970" width="540" height="524" key="StructurePopup" timestamp="1605256641147">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="213" y="-970" width="540" height="524" key="StructurePopup/0.23.1680.1027/-797.-1417.2560.1417/-2717.-1229.1920.1177@-797.-1417.2560.1417" timestamp="1605256641147" />
+    <state x="148" y="-374" key="run.anything.popup" timestamp="1605262973000">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="148" y="-374" key="run.anything.popup/0.23.1680.1027/-797.-1417.2560.1417/-2717.-1229.1920.1177@-797.-1417.2560.1417" timestamp="1605262973000" />
+    <state x="148" y="-1092" width="670" height="676" key="search.everywhere.popup" timestamp="1605004759054">
+      <screen x="-797" y="-1417" width="2560" height="1417" />
+    </state>
+    <state x="148" y="-1092" width="670" height="676" key="search.everywhere.popup/0.23.1680.1027/-2717.-1229.1920.1177/-797.-1417.2560.1417@-797.-1417.2560.1417" timestamp="1605004759054" />
+  </component>
+</project>

@@ -1,0 +1,11 @@
+index:
+    path: /
+    controller: App\Controller\Controller::index
+
+doctor:
+    path: /doctor
+    controller: App\Controller\Controller::doctor
+
+slots:
+    path: /slots/{doctorId}
+    controller: App\Controller\Controller::slots
