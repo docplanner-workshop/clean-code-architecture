@@ -11,10 +11,38 @@
 				{
 					"name": "Doctor add",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Doctor",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Dolittle",
+									"type": "text"
+								},
+								{
+									"key": "specialization",
+									"value": "animals",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:9090/doctor",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"doctor"
+							]
 						}
 					},
 					"response": []
@@ -25,7 +53,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9090/doctor?id=1",
+							"raw": "http://localhost:9090/doctor?id=2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -37,7 +65,7 @@
 							"query": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -53,10 +81,39 @@
 				{
 					"name": "Slot add",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "day",
+									"value": "2020-11-11",
+									"type": "text"
+								},
+								{
+									"key": "duration",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "from_hour",
+									"value": "10:00",
+									"type": "text"
+								}
+							]
+						},
 						"url": {
-							"raw": ""
+							"raw": "http://localhost:9090/doctor/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"doctor",
+								"2"
+							]
 						}
 					},
 					"response": []
@@ -67,20 +124,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:9090/doctor?id=1",
+							"raw": "http://localhost:9090/slots/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "9090",
 							"path": [
-								"doctor"
-							],
-							"query": [
-								{
-									"key": "id",
-									"value": "1"
-								}
+								"slots",
+								"2"
 							]
 						}
 					},
