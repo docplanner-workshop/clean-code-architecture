@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 abstract class E2ETestCase extends WebTestCase
 {
-    private array $entitiesToTruncate = [
+    protected array $entitiesToTruncate = [
         DoctorEntity::class,
         SlotEntity::class
     ];
@@ -26,6 +26,18 @@ abstract class E2ETestCase extends WebTestCase
         );
     }
 
+    protected function postRequest(string $uri, array $body): void
+    {
+        $this->client->request(
+            'POST',
+            $uri,
+            $body,
+            [],
+            ['CONTENT_TYPE' => 'application/x-www-form-urlencoded'],
+        );
+
+    }
+
     protected function serviceFromContainer(string $serviceId)
     {
         return static::$kernel->getContainer()->get($serviceId);
@@ -33,14 +45,14 @@ abstract class E2ETestCase extends WebTestCase
 
     private function truncateEntities(array $entities)
     {
-        $connection = $this->getEntityManager()->getConnection();
+        $connection = $this->entityManager()->getConnection();
         $databasePlatform = $connection->getDatabasePlatform();
         if ($databasePlatform->supportsForeignKeyConstraints()) {
             $connection->executeQuery('SET FOREIGN_KEY_CHECKS=0');
         }
         foreach ($entities as $entity) {
             $query = $databasePlatform->getTruncateTableSQL(
-                $this->getEntityManager()->getClassMetadata($entity)->getTableName()
+                $this->entityManager()->getClassMetadata($entity)->getTableName()
             );
             $connection->executeStatement($query);
         }
@@ -48,13 +60,8 @@ abstract class E2ETestCase extends WebTestCase
             $connection->executeQuery('SET FOREIGN_KEY_CHECKS=1');
         }
     }
-    private function getEntityManager(): EntityManager
+    private function entityManager(): EntityManager
     {
         return $this->serviceFromContainer('doctrine')->getManager();
     }
-
-
-
-
-
 }
