@@ -6,6 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 final class DoctorUseCaseTest extends WebTestCase
 {
     public function test() {
-        die('asfasdfasdf');
+        $client = static::createClient();
+
+        $client->request('GET', '/doctor?id=999');
+
+        $this->assertEquals('404', $client->getResponse()->getStatusCode());
     }
 }

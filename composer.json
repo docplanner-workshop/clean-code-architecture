@@ -61,7 +61,8 @@
         }
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^5.1",
-        "phpunit/phpunit": "^9.3"
+        "phpunit/phpunit": "^9.3",
+        "symfony/browser-kit": "5.1.*",
+        "symfony/phpunit-bridge": "^5.1"
     }
 }
