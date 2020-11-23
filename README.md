@@ -12,3 +12,7 @@ In project directory run: `docker-compose up`
 
 ## Using Postman 
 Postman collection file is located at `./.dev/postman.json`. Import it into your Postman.
+
+
+## Tests
+`vendor/bin/phpunit`
