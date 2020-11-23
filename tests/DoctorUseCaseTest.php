@@ -6,10 +6,8 @@ namespace App\Tests;
 final class DoctorUseCaseTest extends E2ETestCase
 {
     public function test() {
-        $client = static::createClient();
+        $this->client->request('GET', '/doctor?id=999');
 
-        $client->request('GET', '/doctor?id=999');
-
-        $this->assertEquals('404', $client->getResponse()->getStatusCode());
+        $this->assertEquals('404', $this->client->getResponse()->getStatusCode());
     }
 }
