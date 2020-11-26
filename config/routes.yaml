@@ -2,10 +2,22 @@ index:
     path: /
     controller: App\Controller\Controller::index
 
-doctor:
+doctor_add:
     path: /doctor
-    controller: App\Controller\Controller::doctor
+    methods: POST
+    controller: App\Controller\Controller::addDoctorController
 
-slots:
+doctor_get:
+    path: /doctor
+    methods: GET
+    controller: App\Controller\Controller::getDoctorController
+
+slot_add:
     path: /slots/{doctorId}
-    controller: App\Controller\Controller::slots
+    methods: POST
+    controller: App\Controller\Controller::addSlotController
+
+slots_get:
+    path: /slots/{doctorId}
+    methods: GET
+    controller: App\Controller\Controller::getSlotsController

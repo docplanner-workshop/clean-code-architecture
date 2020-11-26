@@ -15,4 +15,4 @@ Postman collection file is located at `./.dev/postman.json`. Import it into your
 
 
 ## Tests
-`vendor/bin/phpunit`
+`docker-compose exec app vendor/bin/phpunit`
