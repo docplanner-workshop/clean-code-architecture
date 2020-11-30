@@ -3,19 +3,20 @@ declare(strict_types=1);
 
 namespace App\Action;
 
-use App\Infrastructure\Repository\DoctrineDoctors;
 use App\Controller\DoctorEntity;
+use App\Model\Doctors;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 final class AddDoctor
 {
-    private DoctrineDoctors $doctors;
+    private Doctors $doctors;
 
-    public function __construct(DoctrineDoctors $doctors)
+    public function __construct(Doctors $doctors)
     {
         $this->doctors = $doctors;
     }
+
     public function __invoke(Request $request): JsonResponse
     {
         $doctor = $this->createDoctorFromRequest($request);
