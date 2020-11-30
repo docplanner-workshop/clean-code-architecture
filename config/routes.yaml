@@ -5,7 +5,7 @@ index:
 doctor_add:
     path: /doctor
     methods: POST
-    controller: App\Controller\Controller::addDoctorController
+    controller: App\Action\AddDoctor
 
 doctor_get:
     path: /doctor

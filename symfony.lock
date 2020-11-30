@@ -74,6 +74,9 @@
     "phar-io/version": {
         "version": "3.0.2"
     },
+    "php": {
+        "version": "7.4"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.2.0"
     },
