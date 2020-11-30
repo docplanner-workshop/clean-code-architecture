@@ -3,24 +3,24 @@ declare(strict_types=1);
 
 namespace App\Action;
 
-use Doctrine\ORM\EntityManagerInterface;
+use App\Infrastructure\Repository\DoctrineDoctors;
+use App\Controller\DoctorEntity;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
-use App\Controller\DoctorEntity;
 
 final class AddDoctor
 {
-    /** @var EntityManagerInterface */
-    private $entityManager;
+    private DoctrineDoctors $doctors;
 
-    public function __construct(EntityManagerInterface $entityManager)
+    public function __construct(DoctrineDoctors $doctors)
     {
-        $this->entityManager = $entityManager;
+        $this->doctors = $doctors;
     }
     public function __invoke(Request $request): JsonResponse
     {
-        $newDoctor = $this->createDoctorFromRequest($request);
-        $doctor = $this->saveDoctor($newDoctor);
+        $doctor = $this->createDoctorFromRequest($request);
+
+        $this->doctors->add($doctor);
 
         return new JsonResponse(['id' => $doctor->getId()]);
     }
@@ -31,15 +31,6 @@ final class AddDoctor
         $doctor->setFirstName($request->get('firstName'));
         $doctor->setLastName($request->get('lastName'));
         $doctor->setSpecialization($request->get('specialization'));
-
-        return $doctor;
-    }
-    private function saveDoctor(DoctorEntity $doctor): DoctorEntity
-    {
-        /** @var EntityManagerInterface $man */
-        $entityManager = $this->entityManager;
-        $entityManager->persist($doctor);
-        $entityManager->flush();
 
         return $doctor;
     }
