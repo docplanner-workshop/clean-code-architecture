@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Infrastructure\Repository;
 
-use App\Controller\DoctorEntity;
+use App\Model\Doctor;
 use App\Model\Doctors;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -17,7 +17,7 @@ final class DoctrineDoctors implements Doctors
         $this->entityManager = $entityManager;
     }
 
-    public function add(DoctorEntity $doctor): void
+    public function add(Doctor $doctor): void
     {
         $this->entityManager->persist($doctor);
         $this->entityManager->flush();

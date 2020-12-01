@@ -3,18 +3,24 @@ declare(strict_types=1);
 
 namespace App\Factory;
 
-use App\Controller\DoctorEntity;
+use App\Model\Doctor;
 use App\Action\Input\AddDoctorDTO;
 
 final class DoctorFactory
 {
-    public function createFromDTO(AddDoctorDTO $doctorData): DoctorEntity
-    {
-        $doctor = new DoctorEntity();
-        $doctor->setFirstName($doctorData->firstName());
-        $doctor->setLastName($doctorData->lastName());
-        $doctor->setSpecialization($doctorData->specialization());
+    private SpecializationFactory $specializationFactory;
 
-        return $doctor;
+    public function __construct(SpecializationFactory $specializationFactory)
+    {
+        $this->specializationFactory = $specializationFactory;
+    }
+
+    public function createFromDTO(AddDoctorDTO $doctorData): Doctor
+    {
+        return new Doctor(
+            $doctorData->firstName(),
+            $doctorData->lastName(),
+            $this->specializationFactory->create($doctorData->specialization())
+        );
     }
 }
