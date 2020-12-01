@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace App\Controller;
+namespace App\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="slot")
  */
-class SlotEntity
+class Slot
 {
     /**
      * @ORM\Id
@@ -34,7 +34,7 @@ class SlotEntity
     protected $duration;// minutes
 
     /**
-     * @ORM\ManyToOne(targetEntity="DoctorEntity", inversedBy="slots")
+     * @ORM\ManyToOne(targetEntity="Doctor", inversedBy="slots")
      */
     protected $doctor;
 

@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use App\Model\Slot;
+use App\Model\Doctor;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,14 +19,6 @@ class Controller extends AbstractController
         return new JsonResponse('ReallyDirty API v1.0');
     }
 
-    function addDoctorController(Request $request): JsonResponse
-    {
-        $newDoctor = $this->createDoctorFromRequest($request);
-        $doctor = $this->saveDoctor($newDoctor);
-
-        return new JsonResponse(['id' => $doctor->getId()]);
-    }
-
     public function getDoctorController(Request $request): JsonResponse
     {
         $doctorId = $request->get('id');
@@ -35,10 +29,10 @@ class Controller extends AbstractController
         }
 
         return new JsonResponse([
-            'id' => $doctor->getId(),
-            'firstName' => $doctor->getFirstName(),
-            'lastName' => $doctor->getLastName(),
-            'specialization' => $doctor->getSpecialization(),
+            'id' => $doctor->id(),
+            'firstName' => $doctor->firstName(),
+            'lastName' => $doctor->lastName(),
+            'specialization' => $doctor->specialization()->name(),
         ]);
     }
 
@@ -63,7 +57,7 @@ class Controller extends AbstractController
             return new JsonResponse([], 404);
         }
 
-        /** @var SlotEntity[] $slots */
+        /** @var Slot[] $slots */
         $slots = $doctor->slots();
 
         $res = [];
@@ -79,14 +73,14 @@ class Controller extends AbstractController
         return new JsonResponse($res);
     }
 
-    private function getDoctorById(int $doctorId): ?DoctorEntity
+    private function getDoctorById(int $doctorId): ?Doctor
     {
         /** @var EntityManagerInterface $man */
         $entityManager = $this->getDoctrine()->getManager();
 
         return $entityManager->createQueryBuilder()
             ->select('doctor')
-            ->from(DoctorEntity::class, 'doctor')
+            ->from(Doctor::class, 'doctor')
             ->where('doctor.id=:id')
             ->setParameter('id', $doctorId)
             ->setMaxResults(1)
@@ -94,9 +88,9 @@ class Controller extends AbstractController
             ->getOneOrNullResult();
     }
 
-    private function createSlotFromRequest(Request $request, DoctorEntity $doctor): SlotEntity
+    private function createSlotFromRequest(Request $request, Doctor $doctor): Slot
     {
-        $slot = new SlotEntity();
+        $slot = new Slot();
         $slot->setDay(new DateTime($request->get('day')));
         $slot->setDoctor($doctor);
         $slot->setDuration((int)$request->get('duration'));
@@ -105,7 +99,7 @@ class Controller extends AbstractController
         return $slot;
     }
 
-    private function saveSlot(SlotEntity $slot): SlotEntity
+    private function saveSlot(Slot $slot): Slot
     {
         /** @var EntityManagerInterface $man */
         $entityManager = $this->getDoctrine()->getManager();
@@ -113,25 +107,5 @@ class Controller extends AbstractController
         $entityManager->flush();
 
         return $slot;
-    }
-
-    private function createDoctorFromRequest(Request $request): DoctorEntity
-    {
-        $doctor = new DoctorEntity();
-        $doctor->setFirstName($request->get('firstName'));
-        $doctor->setLastName($request->get('lastName'));
-        $doctor->setSpecialization($request->get('specialization'));
-
-        return $doctor;
-    }
-
-    private function saveDoctor(DoctorEntity $doctor): DoctorEntity
-    {
-        /** @var EntityManagerInterface $man */
-        $entityManager = $this->getDoctrine()->getManager();
-        $entityManager->persist($doctor);
-        $entityManager->flush();
-
-        return $doctor;
     }
 }
