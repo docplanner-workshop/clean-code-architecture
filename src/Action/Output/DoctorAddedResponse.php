@@ -4,15 +4,18 @@ declare(strict_types=1);
 namespace App\Action\Output;
 
 use App\Model\Doctor;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Response;
 
-final class DoctorAddedResponse extends JsonResponse
+final class DoctorAddedResponse
 {
+    private int $id;
+
     public function __construct(Doctor $doctor)
     {
-        parent::__construct([
-            'id' => $doctor->id()
-        ], Response::HTTP_CREATED);
+        $this->id = $doctor->id();
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
     }
 }

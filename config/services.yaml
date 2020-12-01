@@ -43,5 +43,12 @@ services:
         tags:
             - {name: kernel.event_listener, event: kernel.exception}
 
+    App\Infrastructure\Responder\JsonResponder:
+        tags:
+            - {name: kernel.event_listener, event: kernel.view}
+
+    get_set_method_normalizer:
+        class: Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer
+        tags: [serializer.normalizer]
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
