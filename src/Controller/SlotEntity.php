@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="slot")
  */
-final class SlotEntity
+class SlotEntity
 {
     /**
      * @ORM\Id

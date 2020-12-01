@@ -24,6 +24,7 @@ services:
             - '../src/Tests/'
             - '../src/Action/Input/'
             - '../src/Action/Output/'
+            - '../src/Infrastructure/Exception'
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
@@ -33,6 +34,14 @@ services:
 
     App\Model\Doctors:
         class: App\Infrastructure\Repository\DoctrineDoctors
+
+    App\Infrastructure\ParamConverter\AddDoctorDTOParamConverter:
+        arguments:
+            - '@App\Infrastructure\RequestValidator\SymfonyObjectValidator'
+
+    App\Infrastructure\ExceptionHandler\InvalidRequestExceptionHandler:
+        tags:
+            - {name: kernel.event_listener, event: kernel.exception}
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

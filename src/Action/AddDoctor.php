@@ -3,36 +3,29 @@ declare(strict_types=1);
 
 namespace App\Action;
 
-use App\Controller\DoctorEntity;
+use App\Action\Input\AddDoctorDTO;
+use App\Action\Output\DoctorAddedResponse;
+use App\Factory\DoctorFactory;
 use App\Model\Doctors;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 
 final class AddDoctor
 {
     private Doctors $doctors;
 
-    public function __construct(Doctors $doctors)
+    private DoctorFactory $doctorFactory;
+
+    public function __construct(Doctors $doctors, DoctorFactory $doctorFactory)
     {
         $this->doctors = $doctors;
+        $this->doctorFactory = $doctorFactory;
     }
 
-    public function __invoke(Request $request): JsonResponse
+    public function __invoke(AddDoctorDTO $addDoctorDTO): DoctorAddedResponse
     {
-        $doctor = $this->createDoctorFromRequest($request);
+        $doctor = $this->doctorFactory->createFromDTO($addDoctorDTO);
 
         $this->doctors->add($doctor);
 
-        return new JsonResponse(['id' => $doctor->getId()]);
-    }
-
-    private function createDoctorFromRequest(Request $request): DoctorEntity
-    {
-        $doctor = new DoctorEntity();
-        $doctor->setFirstName($request->get('firstName'));
-        $doctor->setLastName($request->get('lastName'));
-        $doctor->setSpecialization($request->get('specialization'));
-
-        return $doctor;
+        return new DoctorAddedResponse($doctor);
     }
 }

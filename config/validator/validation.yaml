@@ -1,0 +1,8 @@
+App\Action\Input\AddDoctorDTO:
+  properties:
+    firstName:
+      - NotBlank: ~
+    lastName:
+      - NotBlank: ~
+    specialization:
+      - NotBlank: ~
