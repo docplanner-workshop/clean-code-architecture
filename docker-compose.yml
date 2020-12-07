@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+  app:
+    container_name: dp-workshop-app
+    image: webdevops/php-nginx-dev:7.4
+    volumes:
+      - "./:/app:cached"
+      - "./var/:/app/var:delegated"
+      - "./vendor/:/app/vendor:delegated"
+    working_dir: /app
+    env_file:
+      - .env
+    depends_on:
+      - mysql
+    expose:
+      - "80"
+    ports:
+      - "9090:80"
+    environment:
+      WEB_DOCUMENT_ROOT: "/app/public"
+    networks:
+      internal: ~
+    links:
+      - mysql
+
+  mysql:
+    container_name: dp-workshop-mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: doctor_calendar
+      MYSQL_USER: dp
+      MYSQL_PASSWORD: docplanner<3
+      MYSQL_ROOT_PASSWORD: docplanner<3
+    networks:
+      internal: ~
+
+networks:
+  internal:
+    external: false
